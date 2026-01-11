@@ -36,9 +36,18 @@ return t
 }
 
 function updatePreview(){
-const g=guests[0];
+const g=guests.find(x=>!x.sent) || guests[0];
+if(!g) return;
 const txt=applyVars(document.getElementById("templateBox").value,g);
 document.getElementById("preview").textContent=txt;
+document.getElementById("previewPhone").textContent="+91 "+g.number;
+}
+
+function showPreview(i){
+const g=guests[i];
+const txt=applyVars(document.getElementById("templateBox").value,g);
+document.getElementById("preview").textContent=txt;
+document.getElementById("previewPhone").textContent="+91 "+g.number;
 }
 
 function generate(){
@@ -51,7 +60,7 @@ guests.forEach((g,i)=>{
 table.innerHTML+=`
 <tr id="row${i}">
 <td>${i+1}</td>
-<td>${g.name}</td>
+<td class="clickable" onclick="showPreview(${i})">${g.name}</td>
 <td>${g.number}</td>
 <td>${g.type}</td>
 <td id="s${i}">Pending</td>
@@ -69,6 +78,7 @@ g.sent=true;
 document.getElementById("s"+i).innerText="Sent";
 document.getElementById("row"+i).className="sent";
 updateStats();
+updatePreview();
 }
 
 function updateStats(){
