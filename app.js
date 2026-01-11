@@ -11,14 +11,6 @@ fetch("template.txt",{cache:"no-store"})
 
 document.getElementById("templateBox").addEventListener("input",updatePreview);
 
-document.getElementById("lockScroll").addEventListener("change",function(){
- if(this.checked){
-  document.body.style.overflow="hidden";
- }else{
-  document.body.style.overflow="auto";
- }
-});
-
 document.getElementById("excel").addEventListener("change",function(e){
 const reader=new FileReader();
 reader.onload=function(evt){
