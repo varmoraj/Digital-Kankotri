@@ -2,63 +2,42 @@
 <html lang="gu">
 <head>
 <meta charset="UTF-8">
-<title>Digital Kankotri</title>
+<title>Wedding WhatsApp CRM</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
 <style>
 body{font-family:sans-serif;background:#f1f5f9;padding:20px}
 .box{background:white;padding:15px;border-radius:10px;margin-bottom:15px}
-textarea,input,button{width:100%;padding:10px;margin:6px 0}
+textarea,input,button,select{width:100%;padding:8px;margin:4px 0}
 button{background:#1e293b;color:white;border:none;border-radius:6px;cursor:pointer}
-#templateBox{min-height:350px}
+#templateBox{min-height:320px}
+
 table{width:100%;border-collapse:collapse}
 td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 .sent{background:#dcfce7}
 .clickable{cursor:pointer;color:#1e40af}
 
-/* Phone styles */
+/* Floating WhatsApp */
 #phone{
  width:320px;
  background:#e5ddd5;
  border-radius:15px;
  box-shadow:0 5px 20px rgba(0,0,0,0.3);
- resize: vertical;
- overflow: auto;
+ resize:vertical;
+ overflow:auto;
  min-height:260px;
  max-height:80vh;
  transition:all .4s ease;
  z-index:999;
 }
-
-.side{
- position:absolute;
- right:20px;
- top:120px;
-}
-
-.floating{
- position:fixed;
- right:20px;
- bottom:20px;
-}
+.side{position:absolute;right:20px;top:120px}
+.floating{position:fixed;right:20px;bottom:20px}
 
 #phoneHeader{
- background:#075e54;
- color:white;
- padding:10px;
- cursor:move;
- border-radius:15px 15px 0 0;
+ background:#075e54;color:white;padding:10px;
+ cursor:move;border-radius:15px 15px 0 0
 }
-
-#phoneBody{padding:10px}
-
-.bubble{
- background:#dcf8c6;
- padding:10px;
- border-radius:8px;
- white-space:pre-wrap;
- font-size:13px;
-}
+.bubble{background:#dcf8c6;padding:10px;border-radius:8px;white-space:pre-wrap;font-size:13px}
 </style>
 </head>
 
@@ -72,22 +51,32 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 <div class="box">
 <input type="file" id="excel" accept=".xlsx">
 <button onclick="generate()">Generate Guest List</button>
-<div id="stats"></div>
+<div id="stats" style="font-weight:bold;margin:8px 0"></div>
 
 <table id="table">
 <tr>
-<th>#</th><th>Name</th><th>Mobile</th><th>Invite Type</th><th>Status</th><th>Send</th>
+<th>#</th>
+<th><input id="fName" placeholder="Name"></th>
+<th><input id="fMobile" placeholder="Mobile"></th>
+<th><select id="fType"></select></th>
+<th>
+<select id="fStatus">
+<option value="">All</option>
+<option value="Sent">Sent</option>
+<option value="Pending">Pending</option>
+</select>
+</th>
+<th>Send</th>
 </tr>
 </table>
 </div>
 
-<!-- Phone -->
 <div id="phone" class="side">
 <div id="phoneHeader">
-<div id="previewPhone">+91 0000000000</div>
+<div id="previewPhone">+91</div>
 <div style="font-size:12px;opacity:.7">WhatsApp</div>
 </div>
-<div id="phoneBody">
+<div style="padding:10px">
 <div class="bubble" id="preview"></div>
 </div>
 </div>
