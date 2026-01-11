@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <title>Digital Kankotri</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
 <style>
 body{font-family:sans-serif;background:#f1f5f9;padding:20px}
 .box{background:white;padding:15px;border-radius:10px;margin-bottom:15px}
 textarea,button,input{width:100%;padding:10px;margin:6px 0}
-button{background:#1e293b;color:white;border:none;border-radius:6px}
+button{background:#1e293b;color:white;border:none;border-radius:6px;cursor:pointer}
 .preview{background:#e5ddd5;padding:10px;border-radius:8px}
 .bubble{background:#dcf8c6;padding:10px;border-radius:8px;white-space:pre-wrap;font-size:13px}
 table{width:100%;border-collapse:collapse}
@@ -19,9 +20,12 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 
 <body>
 
+<!-- Template + Preview Side by Side -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
+
 <div class="box">
 <h3>Wedding Template</h3>
-<textarea id="templateBox" rows="14"></textarea>
+<textarea id="templateBox" rows="16"></textarea>
 </div>
 
 <div class="box">
@@ -31,13 +35,23 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 </div>
 </div>
 
+</div>
+
+<!-- Guest Upload & Report -->
 <div class="box">
 <input type="file" id="excel" accept=".xlsx">
 <button onclick="generate()">Generate Guest List</button>
-<div id="stats"></div>
+
+<div id="stats" style="margin:10px 0;font-weight:bold;"></div>
+
 <table id="table">
 <tr>
-<th>#</th><th>Name</th><th>Mobile</th><th>Invite Type</th><th>Status</th><th>Send</th>
+<th>#</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Invite Type</th>
+<th>Status</th>
+<th>Send</th>
 </tr>
 </table>
 </div>
