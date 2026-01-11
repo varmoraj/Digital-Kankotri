@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<title>Digital Kankotri</title>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<style>
+body{font-family:sans-serif;background:#f1f5f9;padding:20px}
+.wrap{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.box{background:white;padding:15px;border-radius:10px}
+textarea,input,button{width:100%;padding:10px;margin:6px 0}
+button{background:#1e293b;color:white;border:none;border-radius:6px;cursor:pointer}
+#templateBox{min-height:420px}
+.preview{background:#e5ddd5;padding:10px;border-radius:8px}
+.bubble{background:#dcf8c6;padding:10px;border-radius:8px;white-space:pre-wrap;font-size:13px}
+#tableBox{max-height:350px;overflow-y:auto}
+table{width:100%;border-collapse:collapse}
+td,th{border:1px solid #ddd;padding:6px;font-size:13px}
+.sent{background:#dcfce7}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+<div class="box">
+<h3>Wedding Template</h3>
+<textarea id="templateBox"></textarea>
+</div>
+
+<div class="box">
+<h3>WhatsApp Live Preview</h3>
+<div class="preview"><div class="bubble" id="preview"></div></div>
+</div>
+</div>
+
+<div class="box">
+<label>
+<input type="checkbox" id="lockScroll" checked>
+ Lock Template & Preview (scroll only table)
+</label>
+
+<input type="file" id="excel" accept=".xlsx">
+<button onclick="generate()">Generate Guest List</button>
+
+<div id="stats"></div>
+
+<div id="tableBox">
+<table id="table">
+<tr>
+<th>#</th><th>Name</th><th>Mobile</th><th>Invite Type</th><th>Status</th><th>Send</th>
+</tr>
+</table>
+</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
