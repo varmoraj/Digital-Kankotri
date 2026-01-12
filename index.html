@@ -16,31 +16,20 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 .sent{background:#dcfce7}
 .clickable{cursor:pointer;color:#1e40af}
 
-/* Phone styles */
 #phone{
  width:320px;
  background:#e5ddd5;
  border-radius:15px;
  box-shadow:0 5px 20px rgba(0,0,0,0.3);
- resize: vertical;
- overflow: auto;
+ resize:vertical;
+ overflow:auto;
  min-height:260px;
  max-height:80vh;
  transition:all .4s ease;
  z-index:999;
 }
-
-.side{
- position:absolute;
- right:20px;
- top:120px;
-}
-
-.floating{
- position:fixed;
- right:20px;
- bottom:20px;
-}
+.side{position:absolute;right:20px;top:120px}
+.floating{position:fixed;right:20px;bottom:20px}
 
 #phoneHeader{
  background:#075e54;
@@ -49,9 +38,6 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
  cursor:move;
  border-radius:15px 15px 0 0;
 }
-
-#phoneBody{padding:10px}
-
 .bubble{
  background:#dcf8c6;
  padding:10px;
@@ -81,13 +67,12 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 </table>
 </div>
 
-<!-- Phone -->
 <div id="phone" class="side">
 <div id="phoneHeader">
-<div id="previewPhone">+91 0000000000</div>
+<div id="previewPhone">+91</div>
 <div style="font-size:12px;opacity:.7">WhatsApp</div>
 </div>
-<div id="phoneBody">
+<div style="padding:10px">
 <div class="bubble" id="preview"></div>
 </div>
 </div>
