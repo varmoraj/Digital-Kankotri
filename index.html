@@ -11,11 +11,13 @@ body{font-family:sans-serif;background:#f1f5f9;padding:20px}
 textarea,input,button{width:100%;padding:10px;margin:6px 0}
 button{background:#1e293b;color:white;border:none;border-radius:6px;cursor:pointer}
 #templateBox{min-height:350px}
+
 table{width:100%;border-collapse:collapse}
 td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 .sent{background:#dcfce7}
 .clickable{cursor:pointer;color:#1e40af}
 
+/* Phone */
 #phone{
  width:320px;
  background:#e5ddd5;
@@ -25,11 +27,17 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
  overflow:auto;
  min-height:260px;
  max-height:80vh;
- transition:all .4s ease;
+ transition:all .35s ease;
  z-index:999;
+ position:fixed;
+ right:20px;
+ top:120px;
 }
-.side{position:absolute;right:20px;top:120px}
-.floating{position:fixed;right:20px;bottom:20px}
+
+#phone.floating{
+ top:auto;
+ bottom:20px;
+}
 
 #phoneHeader{
  background:#075e54;
@@ -38,6 +46,7 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
  cursor:move;
  border-radius:15px 15px 0 0;
 }
+
 .bubble{
  background:#dcf8c6;
  padding:10px;
@@ -67,7 +76,8 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 </table>
 </div>
 
-<div id="phone" class="side">
+<!-- Floating WhatsApp -->
+<div id="phone">
 <div id="phoneHeader">
 <div id="previewPhone">+91</div>
 <div style="font-size:12px;opacity:.7">WhatsApp</div>
