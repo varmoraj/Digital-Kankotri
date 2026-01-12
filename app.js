@@ -71,18 +71,24 @@ stats.innerText="Total: "+guests.length+" | Sent: "+sent+" | Pending: "+(guests.
 }
 
 /* Drag */
-let d=false,ox=0,oy=0;
-phoneHeader.onmousedown=e=>{d=true;ox=e.clientX-phone.offsetLeft;oy=e.clientY-phone.offsetTop};
-document.onmouseup=()=>d=false;
+let isDown=false,offX=0,offY=0;
+phoneHeader.onmousedown=e=>{
+ isDown=true;
+ offX=e.clientX-phone.offsetLeft;
+ offY=e.clientY-phone.offsetTop;
+};
+document.onmouseup=()=>isDown=false;
 document.onmousemove=e=>{
-if(!d)return;
-phone.style.left=e.clientX-ox+"px";
-phone.style.top=e.clientY-oy+"px";
-phone.classList.remove("side","floating");
+ if(!isDown)return;
+ phone.style.left=(e.clientX-offX)+"px";
+ phone.style.top=(e.clientY-offY)+"px";
 };
 
-/* Snap */
+/* Auto snap on scroll */
 window.addEventListener("scroll",()=>{
-if(window.scrollY>200){phone.className="floating";}
-else{phone.className="side";}
+ if(window.pageYOffset>200){
+   phone.classList.add("floating");
+ }else{
+   phone.classList.remove("floating");
+ }
 });
