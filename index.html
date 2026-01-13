@@ -8,37 +8,34 @@
 <style>
 body{font-family:sans-serif;background:#f1f5f9;padding:20px}
 .box{background:white;padding:15px;border-radius:10px;margin-bottom:15px}
-textarea,input,button{width:100%;padding:10px;margin:6px 0}
+textarea,input,button,select{width:100%;padding:10px;margin:6px 0}
 button{background:#1e293b;color:white;border:none;border-radius:6px;cursor:pointer}
-#templateBox{min-height:350px}
+#templateBox{min-height:260px}
 
 table{width:100%;border-collapse:collapse}
 td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 .sent{background:#dcfce7}
 .clickable{cursor:pointer;color:#1e40af}
 
-/* Phone */
+/* Floating Phone */
 #phone{
  width:320px;
  background:#e5ddd5;
  border-radius:15px;
  box-shadow:0 5px 20px rgba(0,0,0,0.3);
- resize:vertical;
  overflow:auto;
  min-height:260px;
  max-height:80vh;
- transition:all .35s ease;
- z-index:999;
  position:fixed;
  right:20px;
  top:120px;
+ transition:all .3s ease;
+ z-index:999;
 }
-
 #phone.floating{
  top:auto;
  bottom:20px;
 }
-
 #phoneHeader{
  background:#075e54;
  color:white;
@@ -46,7 +43,6 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
  cursor:move;
  border-radius:15px 15px 0 0;
 }
-
 .bubble{
  background:#dcf8c6;
  padding:10px;
@@ -60,7 +56,12 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 <body>
 
 <div class="box">
-<h3>Wedding Template</h3>
+<h3>Select Template</h3>
+<select id="templateSelect"></select>
+</div>
+
+<div class="box">
+<h3>Template Editor</h3>
 <textarea id="templateBox"></textarea>
 </div>
 
@@ -71,7 +72,7 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 
 <table id="table">
 <tr>
-<th>#</th><th>Name</th><th>Mobile</th><th>Invite Type</th><th>Status</th><th>Send</th>
+<th>#</th><th>Name</th><th>Mobile</th><th>Type</th><th>Status</th><th>Send</th>
 </tr>
 </table>
 </div>
@@ -80,7 +81,7 @@ td,th{border:1px solid #ddd;padding:6px;font-size:13px}
 <div id="phone">
 <div id="phoneHeader">
 <div id="previewPhone">+91</div>
-<div style="font-size:12px;opacity:.7">WhatsApp</div>
+<div style="font-size:12px;opacity:.7">WhatsApp Preview</div>
 </div>
 <div style="padding:10px">
 <div class="bubble" id="preview"></div>
